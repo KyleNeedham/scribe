@@ -1,0 +1,26 @@
+{
+  "name": "Translator",
+  "version": "0.0.0",
+  "description": "An ",
+  "main": "dist/translator.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "translator",
+    "language"
+  ],
+  "author": "Kyle Needham <kylex691@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "^1.6.0"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-coffee": "latest",
+    "grunt-contrib-jasmine": "latest",
+    "grunt-contrib-uglify": "latest"
+  }
+}
