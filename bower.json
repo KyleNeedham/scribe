@@ -1,0 +1,28 @@
+{
+  "name": "scribe-translator",
+  "version": "0.1.0",
+  "homepage": "https://github.com/KyleNeedham/scribe-translator",
+  "authors": [
+    "Kyle Needham <kylex691@hotmail.com>"
+  ],
+  "description": "Lightweight translator for javascript",
+  "main": "dist/translator.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "translator",
+    "scribe",
+    "language"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "spec"
+  ]
+}
