@@ -7,17 +7,13 @@
 ) @, (root, _) ->
   
   class Translator
-    
-    ###*
-     * @type {string}
-    ###
-    placeholder: ':'
 
     ###*
      * @param {Object} translations
+     * @param {string} placeholder The string that specifies a replacement
      * @constructor
     ###
-    constructor: (@translations) ->
+    constructor: (@translations, @placeholder = ':') ->
 
     ###*
      * Check to see if the translation exists.
