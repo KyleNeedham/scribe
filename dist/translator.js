@@ -12,18 +12,13 @@
     return Translator = (function() {
 
       /**
-       * @type {string}
-       */
-      Translator.prototype.placeholder = ':';
-
-
-      /**
        * @param {Object} translations
+       * @param {string} placeholder The string that specifies a replacement
        * @constructor
        */
-
-      function Translator(translations) {
+      function Translator(translations, placeholder1) {
         this.translations = translations;
+        this.placeholder = placeholder1 != null ? placeholder1 : ':';
       }
 
 
