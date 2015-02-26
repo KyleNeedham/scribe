@@ -22,7 +22,6 @@
     "grunt-contrib-jasmine": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-coveralls": "^1.0.0",
     "load-grunt-tasks": "^3.1.0"
   }
 }
