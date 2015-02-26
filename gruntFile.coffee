@@ -1,9 +1,6 @@
 module.exports = (grunt) ->
 
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-jasmine'
-  grunt.loadNpmTasks 'grunt-contrib-uglify'
-  grunt.loadNpmTasks 'grunt-contrib-watch'
+  require('load-grunt-tasks') grunt
 
   # Core tasks
   tasks = ['coffee', 'uglify', 'jasmine']
