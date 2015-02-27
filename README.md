@@ -1,6 +1,6 @@
 # Scribe  [![Build Status](https://travis-ci.org/KyleNeedham/scribe.svg?branch=master)](https://travis-ci.org/KyleNeedham/scribe)
 
-Scribe is a seriously lightweight translator for javascript that can be intergrated into any project with ease.
+Scribe is a seriously lightweight translator for javascript that can be intergrated into any project.
 
 ---
 
@@ -17,9 +17,9 @@ var translations = {
   },
   validation: {
     range: 'Your range must be within :start and :end',
-    contains: 'The string must contain these words :contain, :contain, :contain',
+    contains: 'The string must contain these phrases: :contain, :contain, :contain',
     users: {
-      email: 'You email does not match.'
+      email: 'Your email does not match.'
     }
   }
 }
@@ -28,8 +28,8 @@ trans = new Translator(translations, ':');
 
 trans.get('button.save'); // Save
 trans.get('validation.range', {start: 'Monday', end: 'Friday'}); // Your range must be within Monday and Friday
-trans.get('validation.contains', {contain: ['ayy lmao', 'wow', 'doge']}); // The string must contain these words ayy lmao, wow, doge
-trans.get('validation.users.email'); // You email does not match.
+trans.get('validation.contains', {contain: ['ayy lmao', 'such wow', 'doge']}); // The string must contain these phrases: ayy lmao, such wow, doge
+trans.get('validation.users.email'); // Your email does not match.
 ```
 
 If you need to check if a translations exist you can simple use the `has` method.
@@ -47,4 +47,4 @@ else
 
 ### Contributions
 
-All contributions are welcomed. Please only edit `src/translator.coffee` and not the dist files.
+All contributions are welcomed. Please only edit `src/translator.coffee` and add tests if necessary.
