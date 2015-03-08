@@ -32,7 +32,7 @@ trans.get('validation.contains', {contain: ['ayy lmao', 'such wow', 'doge']}); /
 trans.get('validation.users.email'); // Your email does not match.
 ```
 
-If you need to check if a translations exist you can simple use the `has` method.
+If you need to check if a translations exist you can simply use the `has` method.
 
 ```javascript
 if (trans.has('buttons.sync'))
