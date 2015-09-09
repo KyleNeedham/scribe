@@ -3,10 +3,10 @@
     define ['underscore'], (_) ->
       factory root, _
   else
-    root.Translator = factory root, root._
+    root.Scribe = factory root, root._
 ) @, (root, _) ->
-  
-  class Translator
+
+  class Scribe
 
     ###*
      * @param {Object} translations
@@ -26,7 +26,7 @@
     ###*
      * Get a translation by key.
      * @param  {string} translation The key where the translation is located
-     * @param  {Object} replace 
+     * @param  {Object} replace
      * @return {string}
     ###
     get: (translation, replace = {}) ->
