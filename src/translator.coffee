@@ -26,11 +26,11 @@
     ###*
      * Get a translation by key.
      * @param  {string} translation The key where the translation is located
-     * @param  {Object} replace
+     * @param  {Object} replacements
      * @return {string}
     ###
-    get: (translation, replace = {}) ->
-      line = @makeReplacements(@getLine(translation), replace) or translation
+    get: (translation, replacements = {}) ->
+      line = @makeReplacements(@getLine(translation), replacements) or translation
 
     ###*
      * Get the line from the translations.
@@ -44,15 +44,15 @@
     ###*
      * Make place-holder replacements.
      * @param  {string} line
-     * @param  {Object} replace
+     * @param  {Object} replacements
      * @return {Object}
     ###
-    makeReplacements: (line, replace) ->
+    makeReplacements: (line, replacements) ->
       return unless line
 
-      replace = @sortReplacements replace
+      replacements = @sortReplacements replacements
 
-      _.each replace, (value, key) ->
+      _.each replacements, (value, key) ->
         # If it is an array then we will go over the line with each item in the array
         # replacing each occurence of the placeholder with the current array item.
         if _.isArray(value)
@@ -68,13 +68,13 @@
     ###*
      * Sort the replacements by length first, so that we don't replace a partial key first. For example
      * if we did not do this the placeholder ":foobar" would conflict with the placeholder ":foo"
-     * @param  {Object} replace
+     * @param  {Object} replacements
      * @return {Object}
     ###
-    sortReplacements: (replace) ->
+    sortReplacements: (replacements) ->
       sorted = {}
 
-      _.chain replace
+      _.chain replacements
         .keys()
         .sortBy (replacement) ->
           replacement.length * -1
