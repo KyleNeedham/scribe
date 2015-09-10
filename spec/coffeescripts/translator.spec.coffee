@@ -14,7 +14,7 @@ describe 'Translator Service', ->
       exact: '{0} there are none|{3} there is a few|{10} there is max'
       complex: '{0} none|[1,10] there is some|[25, Inf] there is lots'
 
-  translator = new Translator translations
+  translator = new Scribe translations
 
   describe 'retrieving', ->
     it 'should retrieve a translation', ->
