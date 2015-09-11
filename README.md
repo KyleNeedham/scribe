@@ -1,6 +1,6 @@
 # Scribe  [![Build Status](https://travis-ci.org/KyleNeedham/scribe.svg?branch=master)](https://travis-ci.org/KyleNeedham/scribe)
 
-Scribe is a seriously lightweight translator for javascript that can be intergrated into any project.
+Scribe is a seriously lightweight translator for JavaScript that can be integrated into any project.
 
 ---
 
@@ -24,27 +24,27 @@ var translations = {
   }
 }
 
-trans = new Translator(translations, ':');
+scribe = new Scribe(translations, ':');
 
-trans.get('button.save'); // Save
-trans.get('validation.range', {start: 'Monday', end: 'Friday'}); // Your range must be within Monday and Friday
-trans.get('validation.contains', {contain: ['ayy lmao', 'such wow', 'doge']}); // The string must contain these phrases: ayy lmao, such wow, doge
-trans.get('validation.users.email'); // Your email does not match.
+scribe.get('button.save'); // Save
+scribe.get('validation.range', {start: 'Monday', end: 'Friday'}); // Your range must be within Monday and Friday
+scribe.get('validation.contains', {contain: ['ayy lmao', 'such wow', 'doge']}); // The string must contain these phrases: ayy lmao, such wow, doge
+scribe.get('validation.users.email'); // Your email does not match.
 ```
 
 If you need to check if a translations exist you can simply use the `has` method.
 
 ```javascript
-if (trans.has('buttons.sync'))
+if (scribe.has('buttons.sync'))
 {
-  buttonLabel = trans.get('buttons.sync');
+  buttonLabel = scribe.get('buttons.sync');
 }
 else
 {
-  buttonLabel = trans.get('buttons.save');
+  buttonLabel = scribe.get('buttons.save');
 }
 ```
 
 ### Contributions
 
-All contributions are welcomed. Please only edit `src/translator.coffee` and add tests if necessary.
+All contributions are welcomed. Please only edit `src/scribe.coffee` and add tests if necessary.
