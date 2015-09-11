@@ -19,7 +19,7 @@
         complex: '{0} none|[1,10] there is some|[25, Inf] there is lots'
       }
     };
-    translator = new Translator(translations);
+    translator = new Scribe(translations);
     describe('retrieving', function() {
       it('should retrieve a translation', function() {
         return expect(translator.get('normal')).toEqual('foo');

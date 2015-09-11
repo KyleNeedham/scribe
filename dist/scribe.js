@@ -5,18 +5,18 @@
         return factory(root, _);
       });
     } else {
-      return root.Translator = factory(root, root._);
+      return root.Scribe = factory(root, root._);
     }
   })(this, function(root, _) {
-    var Translator;
-    return Translator = (function() {
+    var Scribe;
+    return Scribe = (function() {
 
       /**
        * @param {Object} translations
        * @param {string} placeholder The string that specifies a replacement
        * @constructor
        */
-      function Translator(translations, placeholder1) {
+      function Scribe(translations, placeholder1) {
         this.translations = translations;
         this.placeholder = placeholder1 != null ? placeholder1 : ':';
       }
@@ -28,7 +28,7 @@
        * @return {boolean}
        */
 
-      Translator.prototype.has = function(translation) {
+      Scribe.prototype.has = function(translation) {
         return this.get(translation) !== translation;
       };
 
@@ -36,16 +36,16 @@
       /**
        * Get a translation by key.
        * @param  {string} translation The key where the translation is located
-       * @param  {Object} replace 
+       * @param  {Object} replacements
        * @return {string}
        */
 
-      Translator.prototype.get = function(translation, replace) {
+      Scribe.prototype.get = function(translation, replacements) {
         var line;
-        if (replace == null) {
-          replace = {};
+        if (replacements == null) {
+          replacements = {};
         }
-        return line = this.makeReplacements(this.getLine(translation), replace) || translation;
+        return line = this.makeReplacements(this.getLine(translation), replacements) || translation;
       };
 
 
@@ -54,7 +54,7 @@
        * @return {string} The line from @translations or the translation location
        */
 
-      Translator.prototype.getLine = function(translation) {
+      Scribe.prototype.getLine = function(translation) {
         return _.reduce(translation.split('.'), function(segment, property) {
           return segment != null ? segment[property] : void 0;
         }, this.translations);
@@ -64,16 +64,16 @@
       /**
        * Make place-holder replacements.
        * @param  {string} line
-       * @param  {Object} replace
+       * @param  {Object} replacements
        * @return {Object}
        */
 
-      Translator.prototype.makeReplacements = function(line, replace) {
+      Scribe.prototype.makeReplacements = function(line, replacements) {
         if (!line) {
           return;
         }
-        replace = this.sortReplacements(replace);
-        _.each(replace, function(value, key) {
+        replacements = this.sortReplacements(replacements);
+        _.each(replacements, function(value, key) {
           if (_.isArray(value)) {
             return line = _.reduce(value, (function(_this) {
               return function(line, val) {
@@ -91,22 +91,22 @@
       /**
        * Sort the replacements by length first, so that we don't replace a partial key first. For example
        * if we did not do this the placeholder ":foobar" would conflict with the placeholder ":foo"
-       * @param  {Object} replace
+       * @param  {Object} replacements
        * @return {Object}
        */
 
-      Translator.prototype.sortReplacements = function(replace) {
+      Scribe.prototype.sortReplacements = function(replacements) {
         var sorted;
         sorted = {};
-        _.chain(replace).keys().sortBy(function(replacement) {
+        _.chain(replacements).keys().sortBy(function(replacement) {
           return replacement.length * -1;
         }).each(function(placeholder) {
-          return sorted[placeholder] = replace[placeholder];
+          return sorted[placeholder] = replacements[placeholder];
         });
         return sorted;
       };
 
-      return Translator;
+      return Scribe;
 
     })();
   });
