@@ -1,7 +1,7 @@
 {
   "name": "scribe-translator",
   "version": "0.1.0",
-  "description": "An ",
+  "description": "Lightweight translator for javascript",
   "main": "dist/translator.js",
   "scripts": {
     "test": "grunt test"
