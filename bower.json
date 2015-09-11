@@ -6,7 +6,7 @@
     "Kyle Needham <kylex691@hotmail.com>"
   ],
   "description": "Lightweight translator for javascript",
-  "main": "dist/translator.js",
+  "main": "dist/scribe.js",
   "moduleType": [
     "amd",
     "globals"

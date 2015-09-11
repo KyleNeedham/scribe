@@ -12,7 +12,7 @@ module.exports = (grunt) ->
           expand: yes
           join: yes
         files:
-          'dist/translator.js': 'src/translator.coffee'
+          'dist/scribe.js': 'src/scribe.coffee'
       specs:
         files: [
           expand: yes
@@ -24,14 +24,14 @@ module.exports = (grunt) ->
     jasmine:
       src: [
         'node_modules/underscore/underscore.js'
-        'dist/translator.js'
+        'dist/scribe.js'
       ]
       options:
         specs: 'spec/javascripts/**/*.spec.js'
     uglify:
       dist:
         files:
-          'dist/translator.min.js': 'dist/translator.js'
+          'dist/scribe.min.js': 'dist/scribe.js'
     watch:
       files: [
         'src/*',
