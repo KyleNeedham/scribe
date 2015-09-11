@@ -79,6 +79,6 @@
         .sortBy (replacement) ->
           replacement.length * -1
         .each (placeholder) ->
-          sorted[placeholder] = replace[placeholder]
+          sorted[placeholder] = replacements[placeholder]
 
       sorted
