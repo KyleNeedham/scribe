@@ -1,6 +1,6 @@
 # Scribe  [![Build Status](https://travis-ci.org/KyleNeedham/scribe.svg?branch=master)](https://travis-ci.org/KyleNeedham/scribe)
 
-Scribe is a seriously lightweight translator for JavaScript that can be integrated into any project.
+Scribe is a seriously lightweight translator for JavaScript with no dependencies that can be integrated into any project.
 
 ---
 
@@ -9,7 +9,9 @@ Scribe is a seriously lightweight translator for JavaScript that can be integrat
 Scribe will not fetch translations, you should get the translations and pass them in the constructor. By default placeholders are define by prepending `:`.
 
 ```javascript
-var translations = {
+import Scribe from 'scribe';
+
+const translations = {
   buttons: {
     save: 'Save',
     udate: 'Update',
@@ -24,7 +26,7 @@ var translations = {
   }
 }
 
-scribe = new Scribe(translations, ':');
+const scribe = new Scribe(translations, ':');
 
 scribe.get('button.save'); // Save
 scribe.get('validation.range', {start: 'Monday', end: 'Friday'}); // Your range must be within Monday and Friday
@@ -35,16 +37,15 @@ scribe.get('validation.users.email'); // Your email does not match.
 If you need to check if a translations exist you can simply use the `has` method.
 
 ```javascript
-if (scribe.has('buttons.sync'))
-{
+let buttonLabel;
+
+if (scribe.has('buttons.sync')) {
   buttonLabel = scribe.get('buttons.sync');
-}
-else
-{
+} else {
   buttonLabel = scribe.get('buttons.save');
 }
 ```
 
 ### Contributions
 
-All contributions are welcomed. Please only edit `src/scribe.coffee` and add tests if necessary.
+All contributions are welcomed. Please only edit `src/scribe.ts` and add tests if necessary.
