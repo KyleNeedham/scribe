@@ -8,7 +8,7 @@ module.exports = (grunt) => {
     jasmine: {
       scribe: {
         options: {
-          specs: './dist/spec/scribe.spec.js',
+          specs: './lib/spec/scribe.spec.js',
           template: require('grunt-template-jasmine-requirejs'),
           keepSpecRunner: true
         }

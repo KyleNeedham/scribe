@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "rootDir": "./",
-    "outDir": "../dist",
+    "outDir": "../lib",
     "module": "umd",
     "sourceMap": true,
     "declaration": true

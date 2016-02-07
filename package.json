@@ -2,7 +2,7 @@
   "name": "scribe-translator",
   "version": "0.2.0",
   "description": "Lightweight translator for javascript",
-  "main": "dist/scribe.js",
+  "main": "lib/scribe.js",
   "scripts": {
     "test": "grunt test"
   },
