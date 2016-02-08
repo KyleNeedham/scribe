@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "umd",
+    "rootDir": "./src",
+    "outDir": "./lib"
+  },
+  "files": [
+    "./src/scribe.ts"
+  ]
+}
