@@ -2,7 +2,7 @@ module.exports = (grunt) => {
   require('load-grunt-tasks')(grunt);
 
   // Core tasks
-  const tasks = ['jasmine'];
+  const tasks = ['uglify', 'jasmine'];
 
   grunt.initConfig({
     jasmine: {
@@ -19,9 +19,16 @@ module.exports = (grunt) => {
           }
         }
       }
+    },
+    uglify: {
+      scribe: {
+        files: {
+          'lib/scribe.js': 'lib/scribe.js'
+        }
+      }
     }
   });
 
   grunt.registerTask('default', tasks);
-  grunt.registerTask('test', tasks);
+  grunt.registerTask('test', 'jasmine');
 };
