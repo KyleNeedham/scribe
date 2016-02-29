@@ -1,5 +1,5 @@
 export interface Replacements {
-  [key: string]: string | string[]
+  [key: string]: string | string[];
 }
 
 class Scribe {
@@ -27,11 +27,11 @@ class Scribe {
   get(translation: string, replacements?: Replacements): string {
     const line = this.getLine(translation);
 
-    if(!line) {
+    if (!line) {
       return translation;
     }
 
-    if(!replacements) {
+    if (!replacements) {
       return line;
     }
 
@@ -46,7 +46,7 @@ class Scribe {
     const translationKeyParts: string[] = translationNotation.split('.');
 
     return translationKeyParts.reduce((translationSegment, key) => {
-      if(translationSegment) {
+      if (translationSegment) {
         return translationSegment[key];
       }
     }, this.translations);
@@ -65,7 +65,7 @@ class Scribe {
       const replacementValue = replacements[key];
       // If it is an array then we will go over the line with each item in the array
       // replacing each occurence of the placeholder with the current array item.
-      if(Array.isArray(replacementValue)) {
+      if (Array.isArray(replacementValue)) {
         line = this.makeArrayReplacements(line, key, replacementValue);
       } else {
         line = line.replace(new RegExp(`${this.placeholderIdentifier}${key}`, "g"), replacementValue);
@@ -93,8 +93,8 @@ class Scribe {
     */
   protected getSortedReplacementKeys(replacements: Replacements): string[] {
     return Object.keys(replacements).sort((a, b) => {
-    	return b.length - a.length;
-  	});
+      return b.length - a.length;
+    });
   }
 }
 
