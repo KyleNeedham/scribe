@@ -7,6 +7,7 @@ declare class Scribe {
     constructor(translations: any, placeholderIdentifier?: string);
     has(translation: string): boolean;
     get(translation: string, replacements?: Replacements): string;
+    choice(translation: string, count: number, replacements?: Replacements): string;
     protected getLine(translationNotation: string): string;
     protected makeReplacements(line: string, replacements: Replacements): string;
     protected makeArrayReplacements(line: string, key: string, replacements: string[]): string;
