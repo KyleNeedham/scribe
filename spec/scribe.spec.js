@@ -74,11 +74,11 @@ define(['scribe'], function(Scribe) {
 
     describe('Pluralization', function () {
       it('should choose the plural version of a string when the count is > 1', function() {
-        expect(translator.choose('plural.basic', 10)).toEqual('lots of foo');
+        expect(translator.choice('plural.basic', 10)).toEqual('lots of foo');
       });
 
       it('should choose the singular version of a string when the count is <= 1', function() {
-        expect(translator.choose('plural.basic', 1)).toEqual('a foo');
+        expect(translator.choice('plural.basic', 1)).toEqual('a foo');
       });
     });
   });
