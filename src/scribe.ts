@@ -39,6 +39,22 @@ class Scribe {
   }
 
   /**
+   * If the count is greator than 1 then use the plural form of the string.
+   * @param translation @see get
+   * @param count The amount of items.
+   * @param replacements @see get
+   */
+  choice(translation: string, count: number, replacements?: Replacements): string {
+    const choices = translation.split('|');
+
+    if (choices.length === 1 || count < 1) {
+      return this.get(choices[0], replacements);
+    }
+
+    return this.get(choices[1], replacements);
+  }
+
+  /**
     * Gets the translation line, using the translationNotation passed.
     * @param translationNotation The dot notation location of the required translation.
     */

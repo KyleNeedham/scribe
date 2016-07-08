@@ -38,7 +38,7 @@ define(['scribe'], function(Scribe) {
       });
     });
 
-    describe('replacing', function() {
+    describe('Replacing', function() {
       it('should replace a singular place-holder', function() {
         expect(translator.get('replace.singular', {
           bar: 'great'
@@ -69,6 +69,16 @@ define(['scribe'], function(Scribe) {
         expect(translator.get('replace.sameArray', {
           foo: ['1', '2', '3', '4', '5']
         })).toEqual('lets count to 5, 1 2 3 4 5');
+      });
+    });
+
+    describe('Pluralization', function () {
+      it('should choose the plural version of a string when the count is > 1', function() {
+        expect(translator.choose('plural.basic', 10)).toEqual('lots of foo');
+      });
+
+      it('should choose the singular version of a string when the count is <= 1', function() {
+        expect(translator.choose('plural.basic', 1)).toEqual('a foo');
       });
     });
   });
