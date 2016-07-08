@@ -45,13 +45,17 @@ class Scribe {
    * @param replacements @see get
    */
   choice(translation: string, count: number, replacements?: Replacements): string {
-    const choices = translation.split('|');
+    const lines = this.get(translation, replacements).split('|');
 
-    if (choices.length === 1 || count < 1) {
-      return this.get(choices[0], replacements);
+    if (lines[0] === translation) {
+      return translation;
     }
 
-    return this.get(choices[1], replacements);
+    if (lines.length === 1 || count <= 1) {
+      return lines[0];
+    }
+
+    return lines[1];
   }
 
   /**
